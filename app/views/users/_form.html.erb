@@ -1,0 +1,33 @@
+<%= form_with(model: user, local: true, url: choose_path_create_or_edit)do |f| %>
+<%# users_path user#create user_path#edit @users helper%>
+  <% if user.errors.any? %>
+    <div class="error_explanation">
+      <h2>The form contains<%= pluralize(user.errors.count, "error") %>. </h2>
+      <ul>
+        <% user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+  <div class="">
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+  </div>
+  <%= f.submit "Create my account" %>
+<% end %>
