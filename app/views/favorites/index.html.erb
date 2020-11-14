@@ -1,0 +1,8 @@
+<% @favorites.each do |favorite| %>
+  <p>Image:
+    <%= image_tag favorite.image.url %></p><br>
+  <p>Comment:
+    <%= favorite.comment %></p>
+<% end %>
+
+<%= link_to 'back', feeds_path %>
