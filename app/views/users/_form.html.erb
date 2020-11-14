@@ -2,7 +2,7 @@
 <%# users_path user#create user_path#edit @users helper%>
   <% if user.errors.any? %>
     <div class="error_explanation">
-      <h2>The form contains<%= pluralize(user.errors.count, "error") %>. </h2>
+      <h2><%= user.errors.count %>　件のエラーが発生しました。</h2>
       <ul>
         <% user.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
