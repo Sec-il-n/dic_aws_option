@@ -16,7 +16,6 @@ class UsersController < ApplicationController
   def show
 
   end
-  #loginしてから出ないと使用できなくする
   def edit
 
   end

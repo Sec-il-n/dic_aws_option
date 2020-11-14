@@ -18,7 +18,6 @@ class FeedsController < ApplicationController
   def create
     @feed = Feed.new(feed_params)
     @feed.user_id = current_user.id
-    # respond_to do |format|
     if params[:back]
       render :new
     else
@@ -35,7 +34,7 @@ class FeedsController < ApplicationController
       if @feed.update(feed_params)
         redirect_to feed_path, notice: '編集が完了しました。'
       else
-        flash.now[:danger] = 'Feed wasn\'t editted.'
+        flash.now[:danger] = '編集は失敗しました。'
         render :edit
       end
   end
@@ -51,13 +50,11 @@ class FeedsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_feed
-      @feed = Feed.find(params[:id])
-    end
+  def set_feed
+    @feed = Feed.find(params[:id])
+  end
 
-    # Only allow a list of trusted parameters through.
-    def feed_params
-      params.require(:feed).permit(:image, :image_cache, :comment)
-    end
+  def feed_params
+    params.require(:feed).permit(:image, :image_cache, :comment)
+  end
 end
