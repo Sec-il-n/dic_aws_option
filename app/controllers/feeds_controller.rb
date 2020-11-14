@@ -1,58 +1,43 @@
 class FeedsController < ApplicationController
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
 
-  # GET /feeds
-  # GET /feeds.json
   def index
     @feeds = Feed.all
   end
 
-  # GET /feeds/1
-  # GET /feeds/1.json
   def show
   end
 
-  # GET /feeds/new
   def new
     @feed = Feed.new
   end
 
-  # GET /feeds/1/edit
   def edit
   end
 
-  # POST /feeds
-  # POST /feeds.json
   def create
     @feed = Feed.new(feed_params)
     @feed.user_id = current_user.id
-    respond_to do |format|
+    # respond_to do |format|
       if @feed.save
-        format.html { redirect_to @feed, notice: 'Feed was successfully created.' }
-        format.json { render :show, status: :created, location: @feed }
+        redirect_to feeds_path, notice:'写真が投稿されました。'
+        ConfirmMailer.confirm_mail(current_user).deliver
       else
-        format.html { render :new }
-        format.json { render json: @feed.errors, status: :unprocessable_entity }
+        flash.now[:danger] = 'Feed wasn\'t created.'
+        render :new
       end
-    end
+    # end
   end
-
-  # PATCH/PUT /feeds/1
-  # PATCH/PUT /feeds/1.json
   def update
-    respond_to do |format|
+    # respond_to do |format|
       if @feed.update(feed_params)
-        format.html { redirect_to @feed, notice: 'Feed was successfully updated.' }
-        format.json { render :show, status: :ok, location: @feed }
+        redirect_to feed_path, notice: '編集が完了しました。'
       else
-        format.html { render :edit }
-        format.json { render json: @feed.errors, status: :unprocessable_entity }
+        flash.now[:danger] = 'Feed wasn\'t editted.'
+        render :edit
       end
-    end
+    # end
   end
-
-  # DELETE /feeds/1
-  # DELETE /feeds/1.json
   def destroy
     @feed.destroy
     respond_to do |format|
@@ -69,6 +54,6 @@ class FeedsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def feed_params
-      params.require(:feed).permit(:image, :image_cache)
+      params.require(:feed).permit(:image, :image_cache, :comment)
     end
 end
