@@ -19,6 +19,9 @@ class FeedsController < ApplicationController
     @feed = Feed.new(feed_params)
     @feed.user_id = current_user.id
     # respond_to do |format|
+    if params[:back]
+      render :new
+    else
       if @feed.save
         redirect_to feeds_path, notice:'写真が投稿されました。'
         ConfirmMailer.confirm_mail(current_user).deliver
@@ -26,17 +29,18 @@ class FeedsController < ApplicationController
         flash.now[:danger] = 'Feed wasn\'t created.'
         render :new
       end
-    # end
+    end
   end
   def update
-    # respond_to do |format|
       if @feed.update(feed_params)
         redirect_to feed_path, notice: '編集が完了しました。'
       else
         flash.now[:danger] = 'Feed wasn\'t editted.'
         render :edit
       end
-    # end
+  end
+  def confirm
+    @feed = Feed.new(feed_params)
   end
   def destroy
     @feed.destroy

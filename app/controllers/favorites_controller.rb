@@ -11,7 +11,4 @@ class FavoritesController < ApplicationController
 
     redirect_to feeds_path, notice: "#{@favorite.user.name}さんの写真をお気に入りから削除しました。"
   end
-  # def show
-  #   @favorites = current_user.favorite_feeds
-  # end
 end
