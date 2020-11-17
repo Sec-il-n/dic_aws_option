@@ -1,3 +1,35 @@
-// Place all the styles related to the feeds controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+table {
+  margin-left: 25%;
+}
+.content_blogs strong {
+  font-size: 1.2rem;
+}
+.content_blogs {
+  color: white;
+  margin: 10%;
+  font-size: 1rem
+}
+.field {
+  padding: 7px;
+}
+.field strong{
+  color: white;
+  font-size: 0.8rem;
+}
+.actions {
+  padding: 7px;
+}
+.links {
+  font-weight: bold;
+  color: white;
+  font-size: 1rem;
+}
+th {
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: white;
+}
+td {
+
+  color: white;
+}

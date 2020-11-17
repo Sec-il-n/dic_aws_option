@@ -7,17 +7,32 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <header>
+      <ul>
+        <%= link_to 'PhotoBlogsSample', root_path, class:'left' %>
+        <nav>
+          <ul class="clearfix">
+            <% if logged_in? %>
+              <%= link_to 'ログアウト', session_path(current_user.id), method: :delete, class:'right' %>
+              <%= link_to '投稿', new_feed_path, class:'right' %>
+              <%= link_to '一覧', feeds_path, class:'right' %>
+            <% else %>
+              <%= link_to 'ログイン', new_session_path, class:'right' %>
+              <%= link_to '新規登録', new_user_path, class:'right' %>
+            <% end %>
+          </ul>
+        </nav>
+      </ul>
+    </header>
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, class: "#{key}") %><br>
     <% end %>
-    <% if logged_in? %>
-      <%= link_to 'Log out', session_path(current_user.id), method: :delete %>
-    <% else %>
-      <%= link_to 'Log in', new_session_path %>
-      <%= link_to 'Sign up', new_user_path %>
-    <% end %>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <footer>
+     <p>© 2019-2020 PhotoBlogsSample Corp.</p>
+    </footer>
   </body>
 </html>

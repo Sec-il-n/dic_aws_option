@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>PhotoSample</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="/assets/stylesheets/normalize.css">
+    <link rel="stylesheet" href="/assets/stylesheets/top.scss">
+  </head>
+  <body>
+    <div class="container">
+      <section class="about">
+        <h1>Your Favorite Photos</h1>
+        <p>Let's post. With a comments.</p><br>
+        <p>素敵な写真をシェしましょう</p>
+      </section>
+      <section class="function">
+        <h1>Function</h1>
+        <div class="function-images clearfix">
+          <div class="function-image">
+            <img src="/assets/key.png ">
+            <p>ログイン機能</p>
+          </div>
+          <div class="function-image">
+            <img src="/assets/mails.png">
+            <p>写真投稿/表示機能</p>
+          </div>
+          <div class="function-image">
+            <img src="/assets/edit.png">
+            <p>編集機能</p>
+          </div>
+          <div class="function-image">
+            <img src="/assets/delete.png ">
+            <p>削除機能</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
