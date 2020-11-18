@@ -1,18 +1,17 @@
-<p>以下の内容で登録します。</p>
+<h2>以下の内容で登録します。</h2>
 <%= form_with(model: @feed, local: true, url: choose_create_or_edit) do |form| %>
   <%= form.hidden_field :image_cache %>
   <%= form.hidden_field :comment %>
-  <div class="field">
-    <p>Image:</p><br>
-    <%= image_tag (@feed.image.url) if @feed.image && @feed.image.url %>
+  <div class="content_blogs">
+    <strong>写真:</strong><br>
+    <%= image_tag (@feed.image.url) if @feed.image && @feed.image.url %><br>
   </div>
-  <div class="field">
-    <p>Comments:</p><br>
-    <%= @feed.comment %>
+  <div class="content_blogs">
+    <strong>コメント:</strong>
+    <%= @feed.comment %><br>
   </div>
-
   <div class="actions">
-    <%= form.submit 'back', name: 'back' %>
+    <%= form.submit '戻る', name: 'back' %>
     <%= form.submit %>
   </div>
 <% end %>

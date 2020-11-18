@@ -1,7 +1,7 @@
 <%= form_with(model: feed, local: true, url: choose_create_or_edit) do |form| %>
   <% if feed.errors.any? %>
     <div id="error_explanation">
-      <h2><%= user.errors.count %>　件のエラーが発生しました。</h2>
+      <h2><%= feed.errors.count %>　件のエラーが発生しました。</h2>
       <ul>
       <% feed.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -9,19 +9,14 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :image %>
+  <div class="form">
+    <p class="label"><%= form.label :image %></p>
+    <%= image_tag (feed.image.url) if feed.image && feed.image.url %><br>
     <%= form.file_field :image %>
     <%= form.hidden_field :image_cache %>
-    <%= image_tag (feed.image.url) if feed.image && feed.image.url %>
-  </div>
-  <div class="field">
-    <%= form.label :comment %>
+    <p class="label"><%= form.label :comment %></p>
     <%= form.text_field :comment %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <p class="label"></p>
+  </div><br>
+  <%= form.submit %>
 <% end %>
