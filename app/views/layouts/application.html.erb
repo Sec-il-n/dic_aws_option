@@ -27,10 +27,10 @@
         </nav>
       </ul>
     </header>
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %><br>
-    <% end %>
     <div class="container">
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "#{key}") %><br>
+      <% end %>
       <div id="contens">
         <script>
           var element=document.getElementsById('contents');
