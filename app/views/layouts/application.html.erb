@@ -31,7 +31,14 @@
       <%= content_tag(:div, value, class: "#{key}") %><br>
     <% end %>
     <div class="container">
-      <%= yield %>
+      <div id="contens">
+        <script>
+          var element=document.getElementsById('contents');
+          var topPos=element.offsetTop;
+          document.getElementsByClassName('container').scrolTop = topPos;
+        </script>
+        <%= yield %>
+      </div>
     </div>
     <footer>
      <p>© 2019-2020 PhotoSample Corp.</p>

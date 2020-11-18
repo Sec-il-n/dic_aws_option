@@ -20,8 +20,13 @@ ul{
 }
 .container {
   padding-top: 20px;
-  background-image: url("/assets/picture-1.jpeg");
-  background-attachment: fixed;
+  overflow: auto;
+  margin: 0 auto;
+  padding: 150px 0 150px;
+}
+#contents{
+  padding: 300px 10px;
+  border: 1px solid #CCC;
 }
 .about {
   color: white;
@@ -53,7 +58,9 @@ header {
   width: 100%;
   background-color: #2c3e50;
   height: 54px;
-  margin: 0
+  margin: 0;
+  position:fixed;
+  top: 0;
 }
 header ul {
   margin: 0 auto;
