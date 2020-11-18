@@ -13,6 +13,9 @@
         <td><%= image_tag feed.image.url if feed.image && feed.image.url %></td>
         <td><%= feed.comment %></td>
         <td><%= link_to '詳細', feed %></td>
+        <% if logged_in? && feed.user == current_user %>
+          <td><%= link_to '編集', edit_feed_path(feed.id) %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
