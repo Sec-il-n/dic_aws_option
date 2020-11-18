@@ -1,5 +1,4 @@
 <%= form_with(model: user, local: true, url: choose_path_create_or_edit)do |f| %>
-<%# users_path user#create user_path#edit @users helper%>
   <% if user.errors.any? %>
     <div class="error_explanation">
       <h2><%= user.errors.count %>　件のエラーが発生しました。</h2>
@@ -10,24 +9,22 @@
       </ul>
     </div>
   <% end %>
-  <div class="">
-    <%= f.label :name %>
+  <div class="form">
+    <p class="label"><%= f.label :name %></p>
     <%= f.text_field :name %>
-  </div>
-  <div class="">
-    <%= f.label :email %>
+    <p class="label"><%= f.label :email %></p>
     <%= f.email_field :email %>
-  </div>
-  <div class="">
-    <%= f.label :password %>
+    <p class="label"><%= f.label :password %></p>
     <%= f.password_field :password %>
-    <%= f.label :password_confirmation %>
+    <p class="label"><%= f.label :password_confirmation %></p>
     <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="">
-    <%= f.label :image %>
+    <p class="label"><%= f.label :image %></p>
     <%= f.file_field :image %>
     <%= f.hidden_field :image_cache %>
   </div>
+  <% if user.image && user.image.url %>
+    <p class="label_small"><%= '登録済みの写真:' %></p>
+    <p><%= image_tag (@user.image.url) if @user.image && @user.image.url %></p>
+  <% end %>
   <%= f.submit "Create my account" %>
 <% end %>

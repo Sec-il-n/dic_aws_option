@@ -1,26 +1,21 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Feeds</h1>
-
+<h1>Photos</h1>
 <table>
   <thead>
     <tr>
-      <th>Image</th>
-      <th colspan="3"></th>
+      <th>写真</th>
+      <th>コメント</th>
+      <th colspan="4"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @feeds.each do |feed| %>
       <tr>
-        <td><%= image_tag feed.image.url %></td>
-        <td><%= link_to 'Show', feed %></td>
-
+        <td><%= image_tag feed.image.url if feed.image && feed.image.url %></td>
+        <td><%= feed.comment %></td>
+        <td><%= link_to '詳細', feed %></td>
       </tr>
     <% end %>
   </tbody>
-</table>
-
-<br>
-<%= link_to 'My favorites', favorites_path %> |
-<%= link_to 'New Feed', new_feed_path %>
+</table><br>
+<%= link_to 'My favorites', favorites_path, class: 'links' %> |
+<%= link_to 'New Feed', new_feed_path, class: 'links' %>

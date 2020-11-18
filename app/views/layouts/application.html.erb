@@ -10,11 +10,12 @@
   <body>
     <header>
       <ul>
-        <%= link_to 'PhotoBlogsSample', root_path, class:'left' %>
+        <%= link_to 'PhotoSample', root_path, class:'left' %>
         <nav>
           <ul class="clearfix">
             <% if logged_in? %>
               <%= link_to 'ログアウト', session_path(current_user.id), method: :delete, class:'right' %>
+              <%= link_to 'お気に入り', favorites_path, class:'right' %>
               <%= link_to '投稿', new_feed_path, class:'right' %>
               <%= link_to '一覧', feeds_path, class:'right' %>
             <% else %>
@@ -32,7 +33,7 @@
       <%= yield %>
     </div>
     <footer>
-     <p>© 2019-2020 PhotoBlogsSample Corp.</p>
+     <p>© 2019-2020 PhotoSample Corp.</p>
     </footer>
   </body>
 </html>

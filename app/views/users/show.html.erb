@@ -1,13 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>profile:</strong>
-    <%= image_tag (@user.image.url) if @user.image && @user.image.url %>
-</p>
-<p><%= @user.name %></p><br>
-<% if @user.id == current_user.id %>
-  <%= link_to 'Edit', edit_user_path(@user.id) %>
-  <%= link_to 'Destroy', @user, method: :delete, data: { confirm: 'Are you sure?' } %>
-<% end %>
-<%# とりあえずのリンク。実際はタブ（application.html）で遷移 %>
-<%= link_to 'Index', feeds_path %>
+<div class="content_blogs">
+  <strong>プロフィール:</strong>
+  <%= @user.name %><br>
+</div>
+<div class="content_blogs">
+  <%= image_tag (@user.image.url) if @user.image && @user.image.url %>
+</div>
+<div class="links">
+  <% if @user.id == current_user.id %>
+    <p><%= link_to '編集', edit_user_path(@user.id) %></p>
+  <% end %>
+  <p><%= link_to '一覧へ戻る', feeds_path %></p>
+</div>

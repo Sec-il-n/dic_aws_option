@@ -32,16 +32,16 @@ class UsersController < ApplicationController
       end
     end
   end
-  def destroy
-    # 画面遷移しないので(パスも/feeds/:idのみ)不要？
-    # if current_user.id != @user.id
-    #     redirect_to feeds_path, notice: '非登録ユーザー以外の操作はできません。'
-    # end
-    # if logged_in? && current_user.id == @user.id
-      @user.destroy
-      redirect_to feeds_path, notice: 'ユーザー登録を削除しました。'
-    # end
-  end
+  # def destroy
+  #   # 画面遷移しないので(パスも/feeds/:idのみ)不要？
+  #   # if current_user.id != @user.id
+  #   #     redirect_to feeds_path, notice: '非登録ユーザー以外の操作はできません。'
+  #   # end
+  #   # if logged_in? && current_user.id == @user.id
+  #     @user.destroy
+  #     redirect_to feeds_path, notice: 'ユーザー登録を削除しました。'
+  #   # end
+  # end
   private
   def set_user
     @user = User.find(params[:id])
