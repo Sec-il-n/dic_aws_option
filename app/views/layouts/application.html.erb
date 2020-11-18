@@ -15,6 +15,7 @@
           <ul class="clearfix">
             <% if logged_in? %>
               <%= link_to 'ログアウト', session_path(current_user.id), method: :delete, class:'right' %>
+              <%= link_to 'アカウント', edit_user_path(current_user.id), class:'right' %>
               <%= link_to 'お気に入り', favorites_path, class:'right' %>
               <%= link_to '投稿', new_feed_path, class:'right' %>
               <%= link_to '一覧', feeds_path, class:'right' %>
