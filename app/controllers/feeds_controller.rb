@@ -23,9 +23,13 @@ class FeedsController < ApplicationController
     else
       if @feed.save
         redirect_to feeds_path, notice:'写真が投稿されました。'
-        ConfirmMailer.confirm_mail(current_user).deliver
+        begin
+          ConfirmMailer.confirm_mail(current_user).deliver
+        rescue => e
+          puts e.class
+          puts e.message
+        end
       else
-        # flash.now[:danger] = '投稿に失敗しました。'
         render :new
       end
     end
