@@ -25,6 +25,9 @@
 
 /.env
 /.DS_Store
+*/.DS_Store
+/vendor/bundle
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/public/uploads/feed/image/*
