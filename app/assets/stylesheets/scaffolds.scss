@@ -1,5 +1,6 @@
 body {
-  background-image: url("/assets/blogs.jpeg");
+  background-image: image-url("/assets/blogs.jpeg");// 本番環境適応
+  // background-image: url("/assets/blogs.jpeg");
   background-attachment: fixed;
   background-size:cover;
   text-align: center;
