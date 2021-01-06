@@ -5,6 +5,7 @@ set :application, "photos-sample"
 set :repo_url, "git@github.com:Sec-il-n/dic_aws_option.git"
 
 # Default branch is :master
+set :branch, ENV['BRANCH'] || 'aws_option'
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
