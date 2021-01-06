@@ -25,6 +25,7 @@ gem 'unicorn'
 gem 'mini_racer', platforms: :ruby
 # gem 'libv8', '>= 7.3.492.27.0'
 gem 'libv8', '~> 8.4', '>= 8.3.255.0'
+gem 'nokogiri', '>= 1.5.11', '< 2.0.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
