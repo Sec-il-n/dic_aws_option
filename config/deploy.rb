@@ -1,5 +1,6 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.14.1"
+lock "~> 3.15.0"
+# lock "~> 3.14.1"
 
 set :application, "photos-sample"
 set :repo_url, "git@github.com:Sec-il-n/dic_aws_option.git"
